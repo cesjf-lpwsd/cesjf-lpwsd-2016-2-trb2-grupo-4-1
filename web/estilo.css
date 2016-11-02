@@ -1,0 +1,33 @@
+body {
+    padding:0;
+    margin: 0;
+    background-color: cadetblue;
+    font-family:"Century Gothic",Arial,sans-serif;
+}
+
+#pagina {
+    width: 980px;
+    height: 100%;
+    background: white;
+    text-align: justify;
+}
+
+#menus {
+    width: 150px;
+    height: 100%;
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bolder;
+    width: 100px;
+    line-height: 50px;
+    border: 1px yellowgreen;
+    background-color: moccasin;
+    color: forestgreen;
+}
+
+a:hover {
+    text-decoration: underline;
+}
