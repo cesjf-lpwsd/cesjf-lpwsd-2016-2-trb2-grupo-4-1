@@ -5,7 +5,9 @@
  */
 package br.cesjf.lpwsd.servlets;
 
+import br.cesjf.lpwsd.Aluno;
 import java.io.IOException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +31,12 @@ public class AlunoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        Aluno aluno = new Aluno();
+        aluno.setNome(request.getParameter("nome"));
+        
+        request.setAttribute("alunos", aluno);
+        
+        request.getRequestDispatcher("/WEB-INF/aluno-cadastrado.jsp").forward(request, response);
+        
     }
 }

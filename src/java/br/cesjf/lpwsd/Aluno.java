@@ -1,16 +1,13 @@
 
 package br.cesjf.lpwsd;
 
-import java.util.Date;
-import java.util.List;
-
 public class Aluno {
     private String nome;
-    private Date dataMatricula;
-    private int matricula;
+    private String cpf;
     private boolean adimplente;
-    private List<Atividade> atividades;
-            
+    private boolean taxaManutencao;
+    private double mensalidade;
+    
     public String getNome() {
         return nome;
     }
@@ -19,35 +16,43 @@ public class Aluno {
         this.nome = nome;
     }
     
-    public Date getDataMatricula() {
-        return dataMatricula;
+    public String getCpf() {
+        return cpf;
     }
     
-    public void setDataMatricula(Date dataMatricula) {
-        this.dataMatricula = dataMatricula;
-    }
-    
-    public int getMatricula() {
-        return matricula;
-    }
-    
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
     
     public boolean isAdimplente() {
         return adimplente;
     }
-
-    public List<Atividade> getAtividades() {
-        return atividades;
-    }
     
-    public void setAtividades(List<Atividade> atividades) {
-        this.atividades = atividades;
-    }
-
     public void setAdimplente(boolean adimplente) {
         this.adimplente = adimplente;
+    }
+    
+    public boolean isTaxaManutencao() {
+        return taxaManutencao;
+    }
+    
+    public void setTaxaManutencao(boolean taxaManutencao) {
+        this.taxaManutencao = taxaManutencao;
+    }
+    
+    public double getMensalidade() {
+        return mensalidade;
+    }
+    
+    public void setMensalidade(double mensalidade) {
+        this.mensalidade = mensalidade;
+    }
+    
+    public void realizarPagamento() {
+        
+    }
+    
+    public Aluno() {
+        
     }
 }

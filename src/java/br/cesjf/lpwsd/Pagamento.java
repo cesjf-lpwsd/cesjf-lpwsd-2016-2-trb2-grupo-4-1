@@ -4,10 +4,18 @@ package br.cesjf.lpwsd;
 import java.util.Date;
 
 public class Pagamento {
+    private Aluno aluno;
     private Date dataPagamento;
-    private Double valor;
-    private boolean taxaManutencao;
-    private boolean pago;
+    private double valor;
+
+    
+    public Aluno getAluno() {
+        return aluno;
+    }
+    
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
     
     public Date getDataPagamento() {
         return dataPagamento;
@@ -17,27 +25,12 @@ public class Pagamento {
         this.dataPagamento = dataPagamento;
     }
     
-    public Double getValor() {
+    public double getValor() {
         return valor;
     }
     
-    public void setValor(Double valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
     
-    public boolean isTaxaManutencao() {
-        return taxaManutencao;
-    }
-    
-    public void setTaxaManutencao(boolean taxaManutencao) {
-        this.taxaManutencao = taxaManutencao;
-    }
-    
-    public boolean isPago() {
-        return pago;
-    }
-    
-    public void setPago(boolean pago) {
-        this.pago = pago;
-    }
 }

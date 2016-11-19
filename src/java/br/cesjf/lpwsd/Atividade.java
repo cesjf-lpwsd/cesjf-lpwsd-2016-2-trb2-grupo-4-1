@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Atividade {
     private String descricao;
-    private Date dataCadastro;
+    private double valor;
 
     
     public String getDescricao() {
@@ -16,11 +16,12 @@ public class Atividade {
         this.descricao = descricao;
     }
     
-    public Date getDataCadastro() {
-        return dataCadastro;
+    public double getValor() {
+        return valor;
     }
     
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
+    
 }

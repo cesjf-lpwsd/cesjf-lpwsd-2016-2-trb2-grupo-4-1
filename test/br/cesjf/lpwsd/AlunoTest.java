@@ -37,20 +37,14 @@ public class AlunoTest {
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of getNome method, of class Aluno.
-     */
+    
     @Test
     public void testGetNome() {
         System.out.println("getNome");
         Aluno aluno = new Aluno();
         assertEquals(null, aluno.getNome());
     }
-
-    /**
-     * Test of setNome method, of class Aluno.
-     */
+    
     @Test
     public void testSetNome() {
         System.out.println("setNome");
@@ -58,65 +52,66 @@ public class AlunoTest {
         aluno.setNome("Teste");
         assertEquals("Teste", aluno.getNome());
     }
-
-    /**
-     * Test of getDataMatricula method, of class Aluno.
-     */
-    @Test
-    public void testGetDataMatricula() {
-        System.out.println("getDataMatricula");
-        Aluno aluno = new Aluno();
-        assertEquals(null, aluno.getDataMatricula());
-    }
-
-    /**
-     * Test of setDataMatricula method, of class Aluno.
-     */
-    @Test
-    public void testSetDataMatricula() {
-        System.out.println("setDataMatricula");
-        Date dataMatricula = new Date();
-    }
-
-    /**
-     * Test of getMatricula method, of class Aluno.
-     */
-    @Test
-    public void testGetMatricula() {
-        System.out.println("getMatricula");
-        Aluno aluno = new Aluno();
-        assertEquals(0, aluno.getMatricula());
-    }
-
-    /**
-     * Test of setMatricula method, of class Aluno.
-     */
-    @Test
-    public void testSetMatricula() {
-        System.out.println("setMatricula");
-        Aluno aluno = new Aluno();
-        aluno.setMatricula(20161108);
-        assertEquals(20161108, aluno.getMatricula());
-    }
-
-    /**
-     * Test of isAdimplente method, of class Aluno.
-     */
+    
     @Test
     public void testIsAdimplente() {
         System.out.println("isAdimplente");
         Aluno aluno = new Aluno();
         assertEquals(false, aluno.isAdimplente());
     }
-
-    /**
-     * Test of setAdimplente method, of class Aluno.
-     */
+    
     @Test
     public void testSetAdimplente() {
         System.out.println("setAdimplente");
         Aluno aluno = new Aluno();
         aluno.setAdimplente(true);
         assertEquals(true, aluno.isAdimplente());
+    }
+    
+    @Test
+    public void testGetCpf() {
+        System.out.println("getCpf");
+        Aluno aluno = new Aluno();
+        assertEquals(null,aluno.getCpf());
+    }
+    
+    @Test
+    public void testSetCpf() {
+        System.out.println("setCpf");
+        Aluno aluno = new Aluno();
+        aluno.setCpf("CPF");
+        assertEquals("CPF",aluno.getCpf());
+    }
+    
+    @Test
+    public void testTaxaManutencao() {
+        System.out.println("taxaManutencao");
+        Aluno aluno = new Aluno();
+        assertEquals(false, aluno.isTaxaManutencao());
+    }
+    
+    @Test
+    public void testSetTaxaManutencao() {
+        System.out.println("setAdimplente");
+        Aluno aluno = new Aluno();
+        aluno.setTaxaManutencao(true);
+        assertEquals(true, aluno.isTaxaManutencao());
+    }
+    
+    @Test
+    public void testGetMensalidade() {
+        System.out.println("getMensalidade");
+        Aluno aluno = new Aluno();
+        double teste = 0.0;
+        assertEquals(teste,teste,aluno.getMensalidade());
+    }
+    
+    @Test
+    public void testSetMensalidade() {
+        System.out.println("getMensalidade");
+        Aluno aluno = new Aluno();
+        aluno.setMensalidade(170.0);
+        double teste = 170.0;
+        assertEquals(teste,teste,aluno.getMensalidade());
     }
 }
