@@ -25,7 +25,7 @@ public class AlunoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/nova-inscricao.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/novo-aluno.xhtml").forward(request, response);
     }
 
     @Override
@@ -33,10 +33,13 @@ public class AlunoServlet extends HttpServlet {
             throws ServletException, IOException {
         Aluno aluno = new Aluno();
         aluno.setNome(request.getParameter("nome"));
+        aluno.setCpf(request.getParameter("cpf"));
+        aluno.setAdimplente(true);
+        aluno.setMensalidade(0);
         
         request.setAttribute("alunos", aluno);
         
-        request.getRequestDispatcher("/WEB-INF/aluno-cadastrado.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/detalhes-aluno.jsp").forward(request, response);
         
     }
 }

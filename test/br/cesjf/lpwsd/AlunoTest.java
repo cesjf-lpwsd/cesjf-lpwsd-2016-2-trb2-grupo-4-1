@@ -84,21 +84,6 @@ public class AlunoTest {
     }
     
     @Test
-    public void testTaxaManutencao() {
-        System.out.println("taxaManutencao");
-        Aluno aluno = new Aluno();
-        assertEquals(false, aluno.isTaxaManutencao());
-    }
-    
-    @Test
-    public void testSetTaxaManutencao() {
-        System.out.println("setAdimplente");
-        Aluno aluno = new Aluno();
-        aluno.setTaxaManutencao(true);
-        assertEquals(true, aluno.isTaxaManutencao());
-    }
-    
-    @Test
     public void testGetMensalidade() {
         System.out.println("getMensalidade");
         Aluno aluno = new Aluno();

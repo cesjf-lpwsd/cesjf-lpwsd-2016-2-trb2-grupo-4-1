@@ -5,7 +5,6 @@ public class Aluno {
     private String nome;
     private String cpf;
     private boolean adimplente;
-    private boolean taxaManutencao;
     private double mensalidade;
     
     public String getNome() {
@@ -32,27 +31,11 @@ public class Aluno {
         this.adimplente = adimplente;
     }
     
-    public boolean isTaxaManutencao() {
-        return taxaManutencao;
-    }
-    
-    public void setTaxaManutencao(boolean taxaManutencao) {
-        this.taxaManutencao = taxaManutencao;
-    }
-    
     public double getMensalidade() {
         return mensalidade;
     }
     
     public void setMensalidade(double mensalidade) {
         this.mensalidade = mensalidade;
-    }
-    
-    public void realizarPagamento() {
-        
-    }
-    
-    public Aluno() {
-        
     }
 }

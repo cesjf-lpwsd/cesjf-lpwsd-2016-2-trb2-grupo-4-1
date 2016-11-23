@@ -31,4 +31,8 @@ public class Inscricao {
     public void setDataInscricao(Date dataInscricao) {
         this.dataInscricao = dataInscricao;
     }
+    
+    public void atualizaMensalidade() {
+        aluno.setMensalidade(aluno.getMensalidade()+atividade.getValor());
+    }
 }

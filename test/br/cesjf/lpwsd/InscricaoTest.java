@@ -81,4 +81,13 @@ public class InscricaoTest {
         inscricao.setDataInscricao(null);
         assertEquals(null,inscricao.getDataInscricao());
     }
+    
+    @Test
+    public void testAtualizaMensalidade() {
+        System.out.println("atualizaMensalidade");
+        Pagamento pagamento = new Pagamento();
+        Aluno aluno = new Aluno();
+        pagamento.setTaxaManutencao(true);
+        assertEquals(false,aluno.isAdimplente());
+    }
 }

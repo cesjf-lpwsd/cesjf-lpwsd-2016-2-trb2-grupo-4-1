@@ -7,6 +7,7 @@ public class Pagamento {
     private Aluno aluno;
     private Date dataPagamento;
     private double valor;
+    private boolean taxaManutencao;
 
     
     public Aluno getAluno() {
@@ -33,4 +34,17 @@ public class Pagamento {
         this.valor = valor;
     }
     
+    public boolean isTaxaManutencao() {
+        return taxaManutencao;
+    }
+    
+    public void setTaxaManutencao(boolean taxaManutencao) {
+        this.taxaManutencao = taxaManutencao;
+    }
+    
+    public void atualizaAdimplencia() {
+        if (isTaxaManutencao()) {
+            aluno.setAdimplente(false);
+        }
+    }
 }
