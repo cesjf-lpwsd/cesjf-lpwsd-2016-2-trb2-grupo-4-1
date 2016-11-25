@@ -4,6 +4,17 @@ package br.cesjf.lpwsd;
 import java.util.Date;
 
 public class Inscricao {
+
+    static Inscricao matricula(Aluno aluno, Atividade atividade) {
+        if(atividade.getAberta()==true) {
+            Inscricao inscricao = new Inscricao();
+            inscricao.setAluno(aluno);
+            inscricao.setAtividade(atividade);
+            return inscricao;
+        } else 
+            return null;
+    }
+    
     private Aluno aluno;
     private Atividade atividade;
     private Date dataInscricao;

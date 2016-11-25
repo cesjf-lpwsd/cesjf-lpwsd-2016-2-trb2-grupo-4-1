@@ -99,4 +99,28 @@ public class AlunoTest {
         double teste = 170.0;
         assertEquals(teste,teste,aluno.getMensalidade());
     }
+    
+    @Test
+    public void testMatriculaAluno() {
+        System.out.println("testMatriculaAluno");
+        Aluno aluno = new Aluno();
+        Atividade atividade = new Atividade();
+        atividade.setAberta(true);
+        Inscricao inscricao = Inscricao.matricula(aluno,atividade);        
+        assertEquals(atividade, inscricao.getAtividade());
+        assertEquals(aluno, inscricao.getAluno());
+    }
+    
+    @Test
+    //Teste onde não se pode concluir a matrícula pq a atividade não está aberta
+    public void testMatriculaAluno2() {
+        System.out.println("testMatriculaAluno");
+        Aluno aluno = new Aluno();
+        Atividade atividade = new Atividade();
+        atividade.setAberta(false);
+        Inscricao inscricao = Inscricao.matricula(aluno,atividade);  
+        assertNull(inscricao);
+        //assertEquals(atividade, inscricao.getAtividade());
+        //assertEquals(aluno, inscricao.getAluno());
+    }
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 public class Atividade {
     private String descricao;
     private double valor;
+    private boolean aberta;
 
     
     public String getDescricao() {
@@ -24,4 +25,11 @@ public class Atividade {
         this.valor = valor;
     }
     
+    public void setAberta(boolean aberta) {
+        this.aberta = aberta;
+    }
+    
+    public boolean getAberta() {
+        return aberta;
+    }
 }
