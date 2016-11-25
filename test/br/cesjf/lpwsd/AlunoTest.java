@@ -106,6 +106,7 @@ public class AlunoTest {
         Aluno aluno = new Aluno();
         Atividade atividade = new Atividade();
         atividade.setAberta(true);
+        aluno.setAdimplente(true);
         Inscricao inscricao = Inscricao.matricula(aluno,atividade);        
         assertEquals(atividade, inscricao.getAtividade());
         assertEquals(aluno, inscricao.getAluno());
@@ -123,4 +124,18 @@ public class AlunoTest {
         //assertEquals(atividade, inscricao.getAtividade());
         //assertEquals(aluno, inscricao.getAluno());
     }
+    
+    @Test
+    //Teste onde não se pode concluir a matrícula pq o aluno está inadimplente
+    public void testMatriculaAluno3() {
+        System.out.println("testMatriculaAluno");
+        Aluno aluno = new Aluno();
+        Atividade atividade = new Atividade();
+        atividade.setAberta(true);
+        aluno.setAdimplente(false);
+        Inscricao inscricao = Inscricao.matricula(aluno,atividade); 
+        assertNull(inscricao);
+        //assertEquals(atividade, inscricao.getAtividade());
+        //assertEquals(aluno, inscricao.getAluno());
+    }    
 }

@@ -67,4 +67,20 @@ public class AtividadeTest {
         double teste = 170.0;
         assertEquals(teste,teste,atividade.getValor());
     }
+    
+    @Test 
+    public void testGetAbert() {
+        System.out.println("getAberta");
+        Atividade atividade = new Atividade();
+        atividade.setAberta(true);
+        assertEquals(true,atividade.getAberta());
+    }
+    
+    @Test
+    public void testSetAberta() {
+        System.out.println("setAberta");
+        Atividade atividade = new Atividade();
+        boolean teste = false;
+        assertEquals(teste,atividade.getAberta());
+    }
 }

@@ -7,10 +7,12 @@ public class Inscricao {
 
     static Inscricao matricula(Aluno aluno, Atividade atividade) {
         if(atividade.getAberta()==true) {
-            Inscricao inscricao = new Inscricao();
-            inscricao.setAluno(aluno);
-            inscricao.setAtividade(atividade);
-            return inscricao;
+            if(aluno.isAdimplente()==true){
+                Inscricao inscricao = new Inscricao();
+                inscricao.setAluno(aluno);
+                inscricao.setAtividade(atividade);
+                return inscricao;
+            } else return null;
         } else 
             return null;
     }
@@ -45,5 +47,9 @@ public class Inscricao {
     
     public void atualizaMensalidade() {
         aluno.setMensalidade(aluno.getMensalidade()+atividade.getValor());
+    }
+    
+    public double taxaMatricula(double valor) {
+        return valor*1.5;
     }
 }

@@ -90,4 +90,13 @@ public class InscricaoTest {
         pagamento.setTaxaManutencao(true);
         assertEquals(false,aluno.isAdimplente());
     }
+    
+    @Test
+    public void testTaxaMatricula() {
+        System.out.println("taxaMatricula");
+        Inscricao inscricao = new Inscricao();
+        double valor = 100;
+        double valorFinal = 150;
+        assertEquals(valor,valor,inscricao.taxaMatricula(valor));
+    }
 }
