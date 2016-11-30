@@ -13,8 +13,7 @@ public class Inscricao {
                 inscricao.setAtividade(atividade);
                 return inscricao;
             } else return null;
-        } else 
-            return null;
+        } else return null;
     }
     
     private Aluno aluno;
