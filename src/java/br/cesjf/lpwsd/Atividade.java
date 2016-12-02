@@ -1,9 +1,17 @@
 
 package br.cesjf.lpwsd;
 
-import java.util.Date;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Atividade {
+@Entity
+public class Atividade implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String descricao;
     private double valor;
     private boolean aberta;
@@ -31,5 +39,13 @@ public class Atividade {
     
     public boolean getAberta() {
         return aberta;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
     }
 }

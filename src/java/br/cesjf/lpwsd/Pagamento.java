@@ -1,9 +1,18 @@
 
 package br.cesjf.lpwsd;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Pagamento {
+@Entity
+public class Pagamento implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Aluno aluno;
     private Date dataPagamento;
     private double valor;
@@ -46,5 +55,13 @@ public class Pagamento {
         if (isTaxaManutencao()) {
             aluno.setAdimplente(false);
         }
+    }
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
     }
 }

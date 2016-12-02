@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewInscricaoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewInscricaoLabel_aluno}"/>
+                    <h:outputText value="#{inscricaoController.selected.aluno}" title="#{bundle.ViewInscricaoTitle_aluno}"/>
+                    <h:outputText value="#{bundle.ViewInscricaoLabel_atividade}"/>
+                    <h:outputText value="#{inscricaoController.selected.atividade}" title="#{bundle.ViewInscricaoTitle_atividade}"/>
+                    <h:outputText value="#{bundle.ViewInscricaoLabel_dataInscricao}"/>
+                    <h:outputText value="#{inscricaoController.selected.dataInscricao}" title="#{bundle.ViewInscricaoTitle_dataInscricao}"/>
+                    <h:outputText value="#{bundle.ViewInscricaoLabel_id}"/>
+                    <h:outputText value="#{inscricaoController.selected.id}" title="#{bundle.ViewInscricaoTitle_id}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{inscricaoController.destroyAndView}" value="#{bundle.ViewInscricaoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewInscricaoEditLink}"/>
+                <br />
+                <h:commandLink action="#{inscricaoController.prepareCreate}" value="#{bundle.ViewInscricaoCreateLink}" />
+                <br />
+                <h:commandLink action="#{inscricaoController.prepareList}" value="#{bundle.ViewInscricaoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewInscricaoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
