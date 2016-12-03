@@ -6,8 +6,8 @@ import br.cesjf.lpwsd.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,7 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@ManagedBean(name = "atividadeController")
+@Named("atividadeController")
 @SessionScoped
 public class AtividadeController implements Serializable {
 
@@ -186,6 +186,10 @@ public class AtividadeController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
+    public Atividade getAtividade(java.lang.Long id) {
+        return ejbFacade.find(id);
+    }
+
     @FacesConverter(forClass = Atividade.class)
     public static class AtividadeControllerConverter implements Converter {
 
@@ -196,7 +200,7 @@ public class AtividadeController implements Serializable {
             }
             AtividadeController controller = (AtividadeController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "atividadeController");
-            return controller.ejbFacade.find(getKey(value));
+            return controller.getAtividade(getKey(value));
         }
 
         java.lang.Long getKey(String value) {

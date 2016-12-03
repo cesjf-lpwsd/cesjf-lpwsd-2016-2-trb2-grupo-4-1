@@ -16,13 +16,16 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateInscricaoLabel_aluno}" for="aluno" />
-                    <h:inputText id="aluno" value="#{inscricaoController.selected.aluno}" title="#{bundle.CreateInscricaoTitle_aluno}" />
+                    <h:selectOneMenu id="selectAluno" value="#{inscricaoController.selected.aluno}" >
+                        <f:selectItems value="#{alunoController.itemsAvailableSelectOne}" />
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateInscricaoLabel_atividade}" for="atividade" />
-                    <h:inputText id="atividade" value="#{inscricaoController.selected.atividade}" title="#{bundle.CreateInscricaoTitle_atividade}" />
+                    <h:selectOneMenu id="selectAtividade" value="#{inscricaoController.selected.atividade}" >
+                        <f:selectItems value="#{atividadeController.itemsAvailableSelectOne}" />
+                    </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateInscricaoLabel_dataInscricao}" for="dataInscricao" />
-                    <h:inputText id="dataInscricao" value="#{inscricaoController.selected.dataInscricao}" title="#{bundle.CreateInscricaoTitle_dataInscricao}" />
-                    <h:outputLabel value="#{bundle.CreateInscricaoLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{inscricaoController.selected.id}" title="#{bundle.CreateInscricaoTitle_id}" />
+                    <h:inputText id="dataInscricao" value="#{inscricaoController.selected.dataInscricao}" 
+                                 title="#{bundle.CreateInscricaoTitle_dataInscricao}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{inscricaoController.create}" value="#{bundle.CreateInscricaoSaveLink}" />

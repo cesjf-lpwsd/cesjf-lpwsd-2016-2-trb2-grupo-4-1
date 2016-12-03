@@ -21,8 +21,6 @@
                     <h:inputText id="cpf" value="#{alunoController.selected.cpf}" title="#{bundle.CreateAlunoTitle_cpf}" />
                     <h:outputLabel value="#{bundle.CreateAlunoLabel_mensalidade}" for="mensalidade" />
                     <h:inputText id="mensalidade" value="#{alunoController.selected.mensalidade}" title="#{bundle.CreateAlunoTitle_mensalidade}" />
-                    <h:outputLabel value="#{bundle.CreateAlunoLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{alunoController.selected.id}" title="#{bundle.CreateAlunoTitle_id}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{alunoController.create}" value="#{bundle.CreateAlunoSaveLink}" />

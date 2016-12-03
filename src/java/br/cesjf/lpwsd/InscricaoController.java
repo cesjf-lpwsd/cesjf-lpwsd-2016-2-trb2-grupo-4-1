@@ -6,8 +6,8 @@ import br.cesjf.lpwsd.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,7 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@ManagedBean(name = "inscricaoController")
+@Named("inscricaoController")
 @SessionScoped
 public class InscricaoController implements Serializable {
 
@@ -186,6 +186,10 @@ public class InscricaoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
+    public Inscricao getInscricao(java.lang.Long id) {
+        return ejbFacade.find(id);
+    }
+
     @FacesConverter(forClass = Inscricao.class)
     public static class InscricaoControllerConverter implements Converter {
 
@@ -196,7 +200,7 @@ public class InscricaoController implements Serializable {
             }
             InscricaoController controller = (InscricaoController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "inscricaoController");
-            return controller.ejbFacade.find(getKey(value));
+            return controller.getInscricao(getKey(value));
         }
 
         java.lang.Long getKey(String value) {

@@ -11,10 +11,11 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author DSF0063
+ * @author aluno
  */
 @Stateless
 public class AtividadeFacade extends AbstractFacade<Atividade> {
+
     @PersistenceContext(unitName = "ExercicioPU")
     private EntityManager em;
 

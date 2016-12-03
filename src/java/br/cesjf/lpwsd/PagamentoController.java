@@ -6,8 +6,8 @@ import br.cesjf.lpwsd.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,7 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@ManagedBean(name = "pagamentoController")
+@Named("pagamentoController")
 @SessionScoped
 public class PagamentoController implements Serializable {
 
@@ -186,6 +186,10 @@ public class PagamentoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
+    public Pagamento getPagamento(java.lang.Long id) {
+        return ejbFacade.find(id);
+    }
+
     @FacesConverter(forClass = Pagamento.class)
     public static class PagamentoControllerConverter implements Converter {
 
@@ -196,7 +200,7 @@ public class PagamentoController implements Serializable {
             }
             PagamentoController controller = (PagamentoController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "pagamentoController");
-            return controller.ejbFacade.find(getKey(value));
+            return controller.getPagamento(getKey(value));
         }
 
         java.lang.Long getKey(String value) {

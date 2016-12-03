@@ -6,8 +6,8 @@ import br.cesjf.lpwsd.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,7 +16,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@ManagedBean(name = "alunoController")
+@Named("alunoController")
 @SessionScoped
 public class AlunoController implements Serializable {
 
@@ -186,6 +186,10 @@ public class AlunoController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
+    public Aluno getAluno(java.lang.Long id) {
+        return ejbFacade.find(id);
+    }
+
     @FacesConverter(forClass = Aluno.class)
     public static class AlunoControllerConverter implements Converter {
 
@@ -196,7 +200,7 @@ public class AlunoController implements Serializable {
             }
             AlunoController controller = (AlunoController) facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "alunoController");
-            return controller.ejbFacade.find(getKey(value));
+            return controller.getAluno(getKey(value));
         }
 
         java.lang.Long getKey(String value) {
@@ -220,7 +224,8 @@ public class AlunoController implements Serializable {
                 Aluno o = (Aluno) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Aluno.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + 
+                        object.getClass().getName() + "; expected type: " + Aluno.class.getName());
             }
         }
 
