@@ -23,7 +23,6 @@ a:visited {
 #pagina {
     width: 900px;
     background-color: white;
-    border-radius: 10px;
     text-align: justify;
 }
 
@@ -40,7 +39,7 @@ a:visited {
 #barraLateral {
     width: 260px;
     float: left;
-    height:62.5%;
+    height: auto;
     background-color: buttonface;
     padding: 12px;
 }

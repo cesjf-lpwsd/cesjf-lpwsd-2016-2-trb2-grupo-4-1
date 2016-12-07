@@ -75,14 +75,6 @@ public class InscricaoTest {
     }
     
     @Test
-    public void testSetDataInscricao() {
-        System.out.println("setDataInscricao");
-        Inscricao inscricao = new Inscricao();
-        inscricao.setDataInscricao(null);
-        assertEquals(null,inscricao.getDataInscricao());
-    }
-    
-    @Test
     public void testAtualizaMensalidade() {
         System.out.println("atualizaMensalidade");
         Pagamento pagamento = new Pagamento();

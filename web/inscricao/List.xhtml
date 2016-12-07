@@ -4,65 +4,88 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListInscricaoTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListInscricaoEmpty}" rendered="#{inscricaoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{inscricaoController.items.rowCount > 0}">
-                    <h:outputText value="#{inscricaoController.pagination.pageFirstItem + 1}..#{inscricaoController.pagination.pageLastItem + 1}/#{inscricaoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{inscricaoController.previous}" value="#{bundle.Previous} #{inscricaoController.pagination.pageSize}" rendered="#{inscricaoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{inscricaoController.next}" value="#{bundle.Next} #{inscricaoController.pagination.pageSize}" rendered="#{inscricaoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{inscricaoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInscricaoTitle_aluno}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.aluno}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInscricaoTitle_atividade}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.atividade}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInscricaoTitle_dataInscricao}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dataInscricao}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListInscricaoTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{inscricaoController.prepareView}" value="#{bundle.ListInscricaoViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{inscricaoController.prepareEdit}" value="#{bundle.ListInscricaoEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{inscricaoController.destroy}" value="#{bundle.ListInscricaoDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
-                <br />
-                <h:commandLink action="#{inscricaoController.prepareCreate}" value="#{bundle.ListInscricaoCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListInscricaoIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <h:head>
+        <title>Academia</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <link rel="stylesheet" href="../estilo.css" />
+    </h:head>
+    <h:body>
+        <center>
+            <div id="pagina">
+                <div id="header">
+                    <a href="../index.xhtml"><img src="../imagens/logo.png" alt="Principal" /></a>
+                </div>
+                <div id="conteudo">
+                    <div id="barraLateral">
+                        <ul>
+                            <li><a href="../index.xhtml">Página Principal</a></li>
+                            <li><a href="../index.xhtml">Cadastro de Alunos</a></li>
+                            <li><a href="../index.xhtml">Cadastro de Atividades</a></li>
+                            <li><a href="../index.xhtml">Pagamentos</a></li>
+                        </ul>
+                        <small>
+                            <b>Grupo:</b> <br />
+                            <a href="mailto:je_barbosaa@hotmail.com">Jéssica Maria Barbosa Antônio</a><br />
+                            <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Cláudio Afonso dos Santos</a>
+                        </small>
+                    </div>
+                    <div id="texto">
+                        <h:form styleClass="jsfcrud_list_form">
+                            <h:panelGroup id="messagePanel" layout="block">
+                                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                            </h:panelGroup>
+                            <h:outputText escape="false" value="#{bundle.ListInscricaoEmpty}" rendered="#{inscricaoController.items.rowCount == 0}"/>
+                            <h:panelGroup rendered="#{inscricaoController.items.rowCount > 0}">
+                                <h:outputText value="#{inscricaoController.pagination.pageFirstItem + 1}..#{inscricaoController.pagination.pageLastItem + 1}/#{inscricaoController.pagination.itemsCount}"/>&nbsp;
+                                <h:commandLink action="#{inscricaoController.previous}" value="#{bundle.Previous} #{inscricaoController.pagination.pageSize}" rendered="#{inscricaoController.pagination.hasPreviousPage}"/>&nbsp;
+                                <h:commandLink action="#{inscricaoController.next}" value="#{bundle.Next} #{inscricaoController.pagination.pageSize}" rendered="#{inscricaoController.pagination.hasNextPage}"/>&nbsp;
+                                <h:dataTable value="#{inscricaoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListInscricaoTitle_aluno}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.aluno.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListInscricaoTitle_atividade}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.atividade.descricao}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListInscricaoTitle_dataInscricao}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.dataInscricao}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListInscricaoTitle_id}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.id}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="&nbsp;"/>
+                                        </f:facet>
+                                        <h:commandLink action="#{inscricaoController.prepareView}" value="#{bundle.ListInscricaoViewLink}"/>
+                                        <h:outputText value=" "/>
+                                        <h:commandLink action="#{inscricaoController.prepareEdit}" value="#{bundle.ListInscricaoEditLink}"/>
+                                        <h:outputText value=" "/>
+                                        <h:commandLink action="#{inscricaoController.destroy}" value="#{bundle.ListInscricaoDestroyLink}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:panelGroup>
+                            <br />
+                            <h:commandLink action="#{inscricaoController.prepareCreate}" value="#{bundle.ListInscricaoCreateLink}"/>
+                            <br />
+                            <br />
+                            <h:link outcome="/index" value="#{bundle.ListInscricaoIndexLink}"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </h:body>
 </html>
+

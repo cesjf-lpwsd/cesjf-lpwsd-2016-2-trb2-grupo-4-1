@@ -4,65 +4,88 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListAtividadeTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListAtividadeEmpty}" rendered="#{atividadeController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{atividadeController.items.rowCount > 0}">
-                    <h:outputText value="#{atividadeController.pagination.pageFirstItem + 1}..#{atividadeController.pagination.pageLastItem + 1}/#{atividadeController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{atividadeController.previous}" value="#{bundle.Previous} #{atividadeController.pagination.pageSize}" rendered="#{atividadeController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{atividadeController.next}" value="#{bundle.Next} #{atividadeController.pagination.pageSize}" rendered="#{atividadeController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{atividadeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtividadeTitle_descricao}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descricao}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtividadeTitle_valor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.valor}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtividadeTitle_aberta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.aberta}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAtividadeTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{atividadeController.prepareView}" value="#{bundle.ListAtividadeViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{atividadeController.prepareEdit}" value="#{bundle.ListAtividadeEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{atividadeController.destroy}" value="#{bundle.ListAtividadeDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
-                <br />
-                <h:commandLink action="#{atividadeController.prepareCreate}" value="#{bundle.ListAtividadeCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListAtividadeIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+    <h:head>
+        <title>Academia</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <link rel="stylesheet" href="../estilo.css" />
+    </h:head>
+    <h:body>
+        <center>
+            <div id="pagina">
+                <div id="header">
+                    <a href="index.xhtml"><img src="../imagens/logo.png" alt="Principal" /></a>
+                </div>
+                <div id="conteudo">
+                    <div id="barraLateral">
+                        <ul>
+                            <li><a href="../index.xhtml">Página Principal</a></li>
+                            <li><a href="../index.xhtml">Cadastro de Alunos</a></li>
+                            <li><a href="../index.xhtml">Cadastro de Atividades</a></li>
+                            <li><a href="../index.xhtml">Pagamentos</a></li>
+                        </ul>
+                        <small>
+                            <b>Grupo:</b> <br />
+                            <a href="mailto:je_barbosaa@hotmail.com">Jéssica Maria Barbosa Antônio</a><br />
+                            <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Cláudio Afonso dos Santos</a>
+                        </small>
+                    </div>
+                    <div id="texto">
+                        <h:form styleClass="jsfcrud_list_form">
+                            <h:panelGroup id="messagePanel" layout="block">
+                                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                            </h:panelGroup>
+                            <h:outputText escape="false" value="#{bundle.ListAtividadeEmpty}" rendered="#{atividadeController.items.rowCount == 0}"/>
+                            <h:panelGroup rendered="#{atividadeController.items.rowCount > 0}">
+                                <h:outputText value="#{atividadeController.pagination.pageFirstItem + 1}..#{atividadeController.pagination.pageLastItem + 1}/#{atividadeController.pagination.itemsCount}"/>&nbsp;
+                                <h:commandLink action="#{atividadeController.previous}" value="#{bundle.Previous} #{atividadeController.pagination.pageSize}" rendered="#{atividadeController.pagination.hasPreviousPage}"/>&nbsp;
+                                <h:commandLink action="#{atividadeController.next}" value="#{bundle.Next} #{atividadeController.pagination.pageSize}" rendered="#{atividadeController.pagination.hasNextPage}"/>&nbsp;
+                                <h:dataTable value="#{atividadeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListAtividadeTitle_descricao}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.descricao}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListAtividadeTitle_valor}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListAtividadeTitle_aberta}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.aberta}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListAtividadeTitle_id}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.id}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="&nbsp;"/>
+                                        </f:facet>
+                                        <h:commandLink action="#{atividadeController.prepareView}" value="#{bundle.ListAtividadeViewLink}"/>
+                                        <h:outputText value=" "/>
+                                        <h:commandLink action="#{atividadeController.prepareEdit}" value="#{bundle.ListAtividadeEditLink}"/>
+                                        <h:outputText value=" "/>
+                                        <h:commandLink action="#{atividadeController.destroy}" value="#{bundle.ListAtividadeDestroyLink}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:panelGroup>
+                            <br />
+                            <h:commandLink action="#{atividadeController.prepareCreate}" value="#{bundle.ListAtividadeCreateLink}"/>
+                            <br />
+                            <br />
+                            <h:link outcome="/index" value="#{bundle.ListAtividadeIndexLink}"/>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </h:body>
 </html>
+
