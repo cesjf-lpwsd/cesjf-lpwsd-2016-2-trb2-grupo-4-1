@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Academia</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <link rel="stylesheet" href="../estilo.css" />
+    </h:head>
+    <h:body>
+        <center>
+            <div id="pagina">
+                <div id="header">
+                    <a href="index.xhtml"><img src="../imagens/logo.png" alt="Principal" /></a>
+                </div>
+                <div id="conteudo">
+                    <div id="barraLateral">
+                        <ul>
+                            <li><a href="../index.xhtml">Página Principal</a></li>
+                            <li><a href="../aluno/List.xhtml">Cadastro de Alunos</a></li>
+                            <li><a href="../atividade/List.xhtml">Cadastro de Atividades</a></li>
+                            <li><a href="../pagamento/List.xhtml">Pagamentos</a></li>
+                        </ul>
+                        <small>
+                            <b>Grupo:</b> <br />
+                            <a href="mailto:je_barbosaa@hotmail.com">Jéssica Maria Barbosa Antônio</a><br />
+                            <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Cláudio Afonso dos Santos</a>
+                        </small>
+                    </div>
+                    <div id="texto">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="#{bundle.ViewPagamentoLabel_aluno}"/>
+                                <h:outputText value="#{pagamentoController.selected.aluno}" title="#{bundle.ViewPagamentoTitle_aluno}"/>
+                                <h:outputText value="#{bundle.ViewPagamentoLabel_dataPagamento}"/>
+                                <h:outputText value="#{pagamentoController.selected.dataPagamento}" title="#{bundle.ViewPagamentoTitle_dataPagamento}"/>
+                                <h:outputText value="#{bundle.ViewPagamentoLabel_valor}"/>
+                                <h:outputText value="#{pagamentoController.selected.valor}" title="#{bundle.ViewPagamentoTitle_valor}"/>
+                                <h:outputText value="#{bundle.ViewPagamentoLabel_id}"/>
+                                <h:outputText value="#{pagamentoController.selected.id}" title="#{bundle.ViewPagamentoTitle_id}"/>
+                            </h:panelGrid>
+                            <br />
+                            <h:commandLink action="#{pagamentoController.destroyAndView}" value="#{bundle.ViewPagamentoDestroyLink}"/>
+                            <br />
+                            <br />
+                            <h:link outcome="Edit" value="#{bundle.ViewPagamentoEditLink}"/>
+                            <br />
+                            <h:commandLink action="#{pagamentoController.prepareCreate}" value="#{bundle.ViewPagamentoCreateLink}" />
+                            <br />
+                            <h:commandLink action="#{pagamentoController.prepareList}" value="#{bundle.ViewPagamentoShowAllLink}"/>
+                            <br />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </h:body>
+</html>
+
